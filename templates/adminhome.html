@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .link-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .link-item {
+            width: 45%;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .link-item a {
+            display: block;
+            text-decoration: none;
+            color: #333;
+            font-size: 20px;
+        }
+
+        .link-item img {
+            width: 70%;
+            height: 50%;
+        }
+    </style>
+    <title>Adminhome</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+        <a class="navbar-brand" href="{% url '' %}">King's College London</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active ">
+                <a class="nav-link" href="{% url '' %}">Home<span class="sr-only">(current)</span></a>
+              </li>
+              
+            
+            <li class="nav-item active ">
+              <a class="nav-link" href="{% url 'logout' %}">logout<span class="sr-only">(current)</span></a>
+            </li>
+            
+            
+          </ul>
+        </div>
+      </nav>
+
+      <div class="container">
+        {% for message in messages %}
+        <h5>
+          <div class="alert alert-danger mt-5" style="width: 50%;">
+            {{message}}
+          </div>
+        </h5>
+        {% endfor %}
+       </div>
+
+<div class="container">
+    <h1 style="margin-left: 300px;">Welcome to the Education Portal</h1>
+
+    <div class="link-container">
+        <div class="link-item">
+            <a href="{% url 'addcourse' %}">
+                <img src="https://tse4.mm.bing.net/th?id=OIP.kf6nN6nhLQRhbIr42OWN6QHaFj&pid=Api&P=0&h=180" alt="Add Course">
+                <p>Add Course</p>
+            </a>
+        </div>
+
+        <div class="link-item">
+            <a href="{% url 'addstudent' %}">
+                <img src="https://tse4.mm.bing.net/th?id=OIP.ilKMjPS-1GQ6yyo0FaGz3QHaEn&pid=Api&P=0&h=180" style="height: 250px;" alt="Add Student">
+                <p>Add Student</p>
+            </a>
+        </div>
+
+        <div class="link-item">
+            <a href="{% url 'showteacher' %}">
+                <img src="https://tse2.mm.bing.net/th?id=OIP.cZLK93UktXieAm98mZ7-RgHaFe&pid=Api&P=0&h=180" alt="Show Teacher">
+                <p>Show Teacher</p>
+            </a>
+        </div>
+
+        <div class="link-item">
+            <a href="{% url 'showstudent' %}">
+                <img src="https://tse4.mm.bing.net/th?id=OIP.ZcXVRyTQ0h2-9LJ7StwyiQHaHa&pid=Api&P=0&h=180" style="height: 250px;" alt="Show Student">
+                <p>Show Student</p>
+            </a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

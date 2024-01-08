@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <style>
+        body {
+            background-image: url('{% static "image/img5.jpg" %}');
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+        }
+        .card {
+            width: 300px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin: 10px;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .card img {
+            max-width: 100px;
+            max-height: 100px;
+            border-radius: 50%;
+        }
+
+        .card a {
+            display: block;
+            margin-top: 10px;
+            text-decoration: none;
+            background-color: #4caf50;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+
+        
+    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+        <a class="navbar-brand" href="">King's college London</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'userhome' %}">Home<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'logout' %}">logout<span class="sr-only">(current)</span></a>
+              </li>
+          </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-5" id="signup">
+        <div class="row justify-content-center">
+            
+                <div class="card">
+                    <img src="{{ um.Image.url }}" style="margin-left: 80px;" alt="{{ um.user.username }}">
+                    <h4>{{ um.userr.first_name }} {{ um.userr.last_name }}</h4>
+                    <p>Email: {{ um.userr.email }}</p>
+                    <p>Address: {{ um.Adress }}</p>
+                    <p>Age: {{ um.Age }}</p>
+                    <p>Contact: {{ um.Contact }}</p>
+                    <p>Course: {{ um.course.Course_name }}</p>
+                    <a href="{% url 'userhome' %}" class="edit">Go Back</a>
+                </div>
+            
+        </div>
+    </div>
+
+</body>
+</html>

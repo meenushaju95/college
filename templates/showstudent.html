@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Detail</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+     
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    table, th, td {
+      border: 1px solid #ddd;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: center; 
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    .actions {
+      display: flex;
+      justify-content: space-around;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+    <a class="navbar-brand" href="#">King's college London</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'adminhome' %}">Home<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="{% url 'logout' %}">logout<span class="sr-only">(current)</span></a>
+          </li>
+      </ul>
+    </div>
+  </nav>
+
+  <h2>Student Details</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Student Name</th>
+        <th>Email</th>
+        <th>Age</th>
+        <th>Joining Date</th>
+        <th>Course</th>
+        <th>Fee</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for student in st %}
+        <tr>
+          <td>{{ student.Student_name }}</td>
+          <td>{{ student.Student_address }}</td>
+          <td>{{ student.Student_age }}</td>
+          <td>{{ student.Joining_date }}</td>
+          <td>{{ student.course.Course_name }}</td>
+          <td>{{ student.course.course_fee }}</td>
+          <td>
+            <a href="{% url 'editstudent' student.id %}">Edit</a>
+            <a href="{% url 'deletestud' student.id %}">Delete</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+</body>
+</html>
